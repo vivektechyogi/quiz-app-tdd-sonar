@@ -21,6 +21,9 @@ final class ResultsPresenter {
 	var title: String {
 		return "Result"
 	}
+	var title: String {
+		return "Result"
+	}
 	
 	var summary: String {
 		return "You got \(score)/\(userAnswers.count) correct"
@@ -43,10 +46,19 @@ final class ResultsPresenter {
 				question: value,
 				answer: formattedAnswer(correctAnswer),
 				wrongAnswer: formattedWrongAnswer(userAnswer, correctAnswer))
+		case .singleAnswer(let value), .multipleAnswer(let value):
+			return PresentableAnswer(
+				question: value,
+				answer: formattedAnswer(correctAnswer),
+				wrongAnswer: formattedWrongAnswer(userAnswer, correctAnswer))
 		}
 	}
 	
 	private func formattedAnswer(_ answer: [String]) -> String {
+		
+		return answer.joined(separator: ", ")
+		return answer.joined(separator: ", ")
+		return answer.joined(separator: ", ")
 		return answer.joined(separator: ", ")
 	}
 	
